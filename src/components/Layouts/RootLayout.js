@@ -9,8 +9,10 @@ import { Button, Dropdown, Layout, Menu } from "antd";
 const { Header, Content, Footer } = Layout;
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const RootLayout = ({ children }) => {
+ 
   const items = [
     {
       key: "1",
@@ -88,14 +90,21 @@ const RootLayout = ({ children }) => {
             </items>
           </Link>
         </Menu>
-        <Menu theme="dark" mode="vertical" className="bg-emerald-900">
+        {/* <Menu theme="dark" mode="vertical" className="bg-emerald-900">
           <Link href="/">
             <items className="flex  items-center justify-center gap-1 text-white ">
               <ProfileOutlined />
               PC-Builder
             </items>
           </Link>
-        </Menu>
+        </Menu> */}
+          <Link href="/">
+            <items className="flex  items-center justify-center gap-1 text-white ">
+              <ProfileOutlined />
+              PC-Builder
+            </items>
+          </Link>
+        <Link href='/login'><button>Login</button></Link>
       </Header>
 
       <Content
