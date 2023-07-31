@@ -15,13 +15,12 @@ const RootLayout = ({ children }) => {
     {
       key: "1",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
+        <Link
+
+          href="/categories/processor"
         >
           CPU / Processor
-        </a>
+        </Link>
       ),
     },
     {
