@@ -14,67 +14,27 @@ const RootLayout = ({ children }) => {
   const items = [
     {
       key: "1",
-      label: (
-        <Link
-
-          href="/categories/processor"
-        >
-          CPU / Processor
-        </Link>
-      ),
+      label: <Link href="/categories/processor">CPU / Processor</Link>,
     },
     {
       key: "2",
-      label: (
-        <Link
-          href='/categories/motherboard'
-        >
-          Motherboard
-        </Link>
-      ),
+      label: <Link href="/categories/motherboard">Motherboard</Link>,
     },
     {
       key: "3",
-      label: (
-        <Link
-        href='/categories/ram'
-      >
-        Ram
-      </Link>
-      ),
+      label: <Link href="/categories/ram">Ram</Link>,
     },
     {
       key: "4",
-      label: (
-        <Link
-        href='/categories/powerSupplyUnit'
-      >
-        Power Supply Unit
-      </Link>
-      ),
+      label: <Link href="/categories/powerSupplyUnit">Power Supply Unit</Link>,
     },
     {
       key: "5",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          Storage Device
-        </a>
-      ),
+      label: <Link href="/categories/storageDevice">Storage Device</Link>,
     },
     {
       key: "6",
-      label: (
-        <Link
-
-        href='/categories/monitor'
-        >
-          Monitor
-        </Link>
-      ),
+      label: <Link href="/categories/monitor">Monitor</Link>,
     },
     {
       key: "7",
@@ -92,9 +52,7 @@ const RootLayout = ({ children }) => {
 
   return (
     <Layout>
-      <Header
-        className="flex justify-between bg-emerald-900"
-      >
+      <Header className="flex justify-between bg-emerald-900">
         <div className="brand-logo">
           <h1>
             <Link
@@ -107,27 +65,27 @@ const RootLayout = ({ children }) => {
             >
               Hathazari Computer Center
             </Link>
-          <Dropdown
-            menu={{
-              items,
-            }}
-            placement="bottomLeft"
-            arrow={{
-              pointAtCenter: true,
-            }}
-          >
-            <Button
-              style={{
-                color: "white",
-                border: "none",
-                padding: "5px 10px",
-                borderRadius: "3px",
-                marginLeft: "10px",
+            <Dropdown
+              menu={{
+                items,
+              }}
+              placement="bottomLeft"
+              arrow={{
+                pointAtCenter: true,
               }}
             >
-              Categories
-            </Button>
-          </Dropdown>
+              <Button
+                style={{
+                  color: "white",
+                  border: "none",
+                  padding: "5px 10px",
+                  borderRadius: "3px",
+                  marginLeft: "10px",
+                }}
+              >
+                Categories
+              </Button>
+            </Dropdown>
           </h1>
         </div>
         <Menu theme="dark" mode="vertical" className="bg-emerald-900">
@@ -157,28 +115,28 @@ const RootLayout = ({ children }) => {
         {children}
       </Content>
 
-      <Footer
-       className="text-center bg-black text-white mt-20"
-      >
+      <Footer className="text-center bg-black text-white mt-20">
         <h2
           style={{
             fontSize: "28px",
           }}
         >
-            Hathazari Computer Center
+          Hathazari Computer Center
         </h2>
-        <div className={`flex justify-center items-center gap-4 my-5 ${styles.social_icons}`}>
+        <div
+          className={`flex justify-center items-center gap-4 my-5 ${styles.social_icons}`}
+        >
           <Link href="https://web.facebook.com/groups/programmingherocommunity">
-            <FacebookFilled style={{}}/>
+            <FacebookFilled style={{}} />
           </Link>
           <Link href="www.twitter.com">
-            <TwitterSquareFilled style={{}}/>
+            <TwitterSquareFilled style={{}} />
           </Link>
           <Link href="https://web.programming-hero.com/home/">
-            <GoogleSquareFilled style={{}}/>
+            <GoogleSquareFilled style={{}} />
           </Link>
           <Link href="www.linkedin.com">
-            <LinkedinFilled style={{}}/>
+            <LinkedinFilled style={{}} />
           </Link>
         </div>
         Hathazari Computer Center ©2023 Created by Arif Islam
