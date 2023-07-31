@@ -38,15 +38,7 @@ const RootLayout = ({ children }) => {
     },
     {
       key: "7",
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          Others
-        </a>
-      ),
+      label: <Link href="/categories/others">Others</Link>,
     },
   ];
 
