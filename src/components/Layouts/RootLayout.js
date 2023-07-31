@@ -20,20 +20,19 @@ const RootLayout = ({ children }) => {
           rel="noopener noreferrer"
           href="https://www.antgroup.com"
         >
-          CPU / Processo
+          CPU / Processor
         </a>
       ),
     },
     {
       key: "2",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
+        <Link
+
+          href='/categories/motherboard'
         >
           Motherboard
-        </a>
+        </Link>
       ),
     },
     {
@@ -75,13 +74,12 @@ const RootLayout = ({ children }) => {
     {
       key: "6",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
+        <Link
+
+        href='/categories/monitor'
         >
           Monitor
-        </a>
+        </Link>
       ),
     },
     {
