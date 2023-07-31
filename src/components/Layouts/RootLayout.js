@@ -46,13 +46,11 @@ const RootLayout = ({ children }) => {
     {
       key: "4",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          Power Supply Unit
-        </a>
+        <Link
+        href='/categories/powerSupplyUnit'
+      >
+        Power Supply Unit
+      </Link>
       ),
     },
     {
