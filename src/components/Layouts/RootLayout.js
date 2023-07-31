@@ -27,7 +27,6 @@ const RootLayout = ({ children }) => {
       key: "2",
       label: (
         <Link
-
           href='/categories/motherboard'
         >
           Motherboard
@@ -37,13 +36,11 @@ const RootLayout = ({ children }) => {
     {
       key: "3",
       label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.luohanacademy.com"
-        >
-          RAM
-        </a>
+        <Link
+        href='/categories/ram'
+      >
+        Ram
+      </Link>
       ),
     },
     {
