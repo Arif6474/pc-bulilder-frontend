@@ -9,10 +9,10 @@ import { Button, Dropdown, Layout, Menu } from "antd";
 const { Header, Content, Footer } = Layout;
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 
 const RootLayout = ({ children }) => {
- 
+  const { data: session } = useSession();
   const items = [
     {
       key: "1",
@@ -82,14 +82,14 @@ const RootLayout = ({ children }) => {
             </Dropdown>
           </h1>
         </div>
-        <Menu theme="dark" mode="vertical" className="bg-emerald-900">
+        {/* <Menu theme="dark" mode="vertical" className="bg-emerald-900">
           <Link href="/">
             <items className="flex  items-center justify-center gap-1 text-white ">
               <ProfileOutlined />
               All Product
             </items>
           </Link>
-        </Menu>
+        </Menu> */}
         {/* <Menu theme="dark" mode="vertical" className="bg-emerald-900">
           <Link href="/">
             <items className="flex  items-center justify-center gap-1 text-white ">
@@ -98,13 +98,19 @@ const RootLayout = ({ children }) => {
             </items>
           </Link>
         </Menu> */}
-          <Link href="/">
-            <items className="flex  items-center justify-center gap-1 text-white ">
-              <ProfileOutlined />
-              PC-Builder
-            </items>
+        <Link href="/">
+          <items className="flex  items-center justify-center gap-1 text-white ">
+            <ProfileOutlined />
+            PC-Builder
+          </items>
+        </Link>
+        {!session?.user ? (
+          <Link href="/login">
+            <button className="btn bg-gray-800 mt-2 text-white border-none">Login</button>
           </Link>
-        <Link href='/login'><button>Login</button></Link>
+        ) : (
+          <button className="btn bg-red-600 mt-2 text-white border-none" onClick={() => signOut()}>Logout</button>
+        )}
       </Header>
 
       <Content

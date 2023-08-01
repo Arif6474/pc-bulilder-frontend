@@ -25,7 +25,7 @@ const LoginPage = () => {
           <GithubOutlined
             onClick={() =>
               signIn("github", {
-                // callbackUrl: 'http://localhost:3000/'
+                callbackUrl: 'http://localhost:3000/'
               })
             }
           />

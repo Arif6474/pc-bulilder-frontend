@@ -31,7 +31,7 @@ const AllProduct = ({ allProducts }) => {
           </div>
         </h2>
       </div>
-      <div className="grid grid-cols-3 gap-4 overflow-hidden">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 overflow-hidden">
         {allProducts &&
           allProducts?.map((product) => {
             const { title, img, price, status, category, rating } = product;
@@ -42,7 +42,7 @@ const AllProduct = ({ allProducts }) => {
                     <figure>
                       <img src={img} width="auto" height="250px" alt="Shoes" />
                     </figure>
-                    <div className="card-body">
+                    <div className="card-body w-full">
                       <p className="text-gray-700 text-md">{status}</p>
                       <h2 className="card-title text-gray-700">
                         {title}

@@ -5,11 +5,13 @@ import { SessionProvider } from "next-auth/react";
 export default function App({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
 
-  return getLayout(
+  return (
     <SessionProvider session={pageProps.pageProps}>
-      <StyleProvider hashPriority="high">
-        <Component {...pageProps} />
-      </StyleProvider>
+      {getLayout(
+        <StyleProvider hashPriority="high">
+          <Component {...pageProps} />
+        </StyleProvider>
+      )}
     </SessionProvider>
   );
 }
