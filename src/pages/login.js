@@ -36,7 +36,7 @@ const LoginPage = () => {
           <input type="email" />
           <label htmlFor="">Your Password</label>
           <input type="password" />
-          <Button>Login</Button>
+          <button className="btn bg-slate-900 text-white mx-auto w-full">Login</button>
         </form>
       </div>
     </div>

@@ -3,24 +3,22 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 const AllProduct = ({ allProducts }) => {
-    // console.log(allProducts);
+  // console.log(allProducts);
   // const products = Math.floor(Math.random() * allProducts?.length);
   // const randomItem = allProducts[products];
   // const [items, setItems] = useState(null)
   // console.log("🚀 ~ file: AllProduct.js:10 ~ AllProduct ~ items:", items)
   // function displayRandomItem(products) {
   //   const randomIndex = Math.floor(Math.random() * products.length);
-  
+
   //   const randomItem = products[randomIndex];
   //   // setItems(randomItem)
   //   console.log("Random Element:", randomItem);
   // }
-  
+
   // // Call the function to display a random element
   // displayRandomItem(allProducts);
- 
-  
-  
+
   return (
     <>
       <div>
@@ -44,10 +42,8 @@ const AllProduct = ({ allProducts }) => {
                     </figure>
                     <div className="card-body w-full">
                       <p className="text-gray-700 text-md">{status}</p>
-                      <h2 className="card-title text-gray-700">
-                        {title}
-                        <div className="text-orange-600 p-2">{price}৳</div>
-                      </h2>
+                      <h2 className="card-title text-gray-700">{title.slice(0,30)}...</h2>
+                      <p className="text-orange-600 text-2xl font-bold p-2">{price}৳</p>
                       <p>If a dog chews shoes whose shoes does he choose?</p>
                       <div className="card-actions justify-start">
                         <div className="badge badge-outline text-gray-700 py-2">
