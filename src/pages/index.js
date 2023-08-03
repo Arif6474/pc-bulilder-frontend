@@ -1,6 +1,7 @@
 import Head from "next/head";
 import RootLayout from "@/components/Layouts/RootLayout";
 import AllProduct from "@/components/UI/AllProduct";
+import Banner from "@/components/UI/Banner";
 
 
 const HomePage = ({allProducts}) => {
@@ -17,6 +18,7 @@ const HomePage = ({allProducts}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
+        <Banner/>
       <AllProduct allProducts={allProducts} />
 
       </div>
@@ -31,7 +33,7 @@ HomePage.getLayout = function getLayout(page) {
 
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:5000/products");
+  const res = await fetch(`${process.env.BASE_URL}/products`);
   const data = await res.json();
   // console.log(data);
 

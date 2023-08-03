@@ -1,10 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import RootLayout from "@/components/Layouts/RootLayout";
+import { addToCategory, pcBuilder } from "@/redux/features/pcBuilder/pcBuilderSlice";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
 
 function Monitor({ allProducts }) {
   const monitor = allProducts?.filter((p) => p.category === "monitor");
+  const dispatch = useDispatch();
 
+  const handleAddToBuilder = (product) => {
+    dispatch(addToCategory({ category: 'monitor', product }));
+  };
   return (
     <>
       <div>
@@ -41,6 +47,10 @@ function Monitor({ allProducts }) {
                         Rating: {rating}
                       </div>
                     </div>
+                    <button 
+                    onClick={()=>handleAddToBuilder(product)}
+                     className="btn bg-gray-800 mt-4 text-white border-none"
+                     >Add to Build</button>
                   </div>
                 </div>
               </>
@@ -58,7 +68,7 @@ Monitor.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:5000/products");
+  const res = await fetch(`${process.env.BASE_URL}/products`);
   const data = await res.json();
   // console.log(data);
 

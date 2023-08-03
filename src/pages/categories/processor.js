@@ -1,15 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 import RootLayout from "@/components/Layouts/RootLayout";
+import { addToCategory } from "@/redux/features/pcBuilder/pcBuilderSlice";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
 
 function Processor({ allProducts }) {
   const processors = allProducts?.filter((p) => p.category === "processor");
-
+  const dispatch = useDispatch();
+  const handleAddToBuilder = (product) => {
+    dispatch(addToCategory({ category: "cpu", product }));
+  };
   return (
     <>
       <div>
         <h2 className="text-center text-gray-700 text-3xl font-bold my-4">
-        Category Products
+          Category Products
           <div class="flex justify-center">
             <hr class="border-t-2 border-gray-900 w-1/6 my-4" />
           </div>
@@ -41,6 +46,12 @@ function Processor({ allProducts }) {
                         Rating: {rating}
                       </div>
                     </div>
+                    <button
+                      onClick={() => handleAddToBuilder(product)}
+                      className="btn bg-gray-800 mt-4 text-white border-none"
+                    >
+                      Add to Build
+                    </button>
                   </div>
                 </div>
               </>
@@ -58,7 +69,7 @@ Processor.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:5000/products");
+  const res = await fetch(`${process.env.BASE_URL}/products`);
   const data = await res.json();
   // console.log(data);
 

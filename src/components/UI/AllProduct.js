@@ -29,7 +29,7 @@ const AllProduct = ({ allProducts }) => {
           </div>
         </h2>
       </div>
-      <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 overflow-hidden">
+      <div className="grid lg:grid-cols-3 grid-cols-1 gap-8 overflow-hidden">
         {allProducts &&
           allProducts?.map((product) => {
             const { title, img, price, status, category, rating } = product;

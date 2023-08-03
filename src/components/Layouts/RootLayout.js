@@ -98,18 +98,27 @@ const RootLayout = ({ children }) => {
             </items>
           </Link>
         </Menu> */}
-        <Link href="/">
-          <items className="flex  items-center justify-center gap-1 text-white ">
-            <ProfileOutlined />
-            PC-Builder
-          </items>
-        </Link>
+        {session?.user && (
+          <Link href="/pcBuild">
+            <items className="flex  items-center justify-center gap-1 text-white ">
+              <ProfileOutlined />
+              PC-Builder
+            </items>
+          </Link>
+        )}
         {!session?.user ? (
           <Link href="/login">
-            <button className="btn bg-gray-800 mt-2 text-white border-none">Login</button>
+            <button className="btn bg-gray-800 mt-2 text-white border-none">
+              Login
+            </button>
           </Link>
         ) : (
-          <button className="btn bg-red-600 mt-2 text-white border-none" onClick={() => signOut()}>Logout</button>
+          <button
+            className="btn bg-red-600 mt-2 text-white border-none"
+            onClick={() => signOut()}
+          >
+            Logout
+          </button>
         )}
       </Header>
 
