@@ -7,7 +7,7 @@ import { useAppSelector } from "@/redux/features/hooks";
 
 function PcBuild() {
   const products = useAppSelector((state) => state.pcBuilder);
-  console.log("🚀 ~ file: pcBuild.js:11 ~ PcBuild ~ products:", products);
+  
   return (
     <div className="flex justify-center items-centerm mt-2 md:mt-20">
       <div className="container mx-auto order border-blue-500 border-2 w-96 md:w-[55%] p-10 ">

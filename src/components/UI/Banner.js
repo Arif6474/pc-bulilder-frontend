@@ -1,46 +1,21 @@
-import { Carousel } from "antd";
 import Image from "next/image";
 import banner from "../../assets/images/banner-images/pc-builds.jpg";
-const contentStyle = {
-  height: "160px",
-  color: "#fff",
-  lineHeight: "160px",
-  textAlign: "center",
-  background: "#364d79",
-};
 
 function Banner() {
   return (
-    <Carousel autoplay >
-      <div>
-        <Image
-          src={banner}
-          width={500}
-          height={500}
-          alt="Picture of the banner"
-        />
+    <div className="bg-teal-800 py-40 mt-10 rounded-3xl flex justify-around items-center gap-20 mb-20">
+      {/* <Image
+        src={banner}
+        width={500}
+        height={500}
+        alt="Picture of the banner"
+      /> */}
+
+      <div className="space-y-10">
+        <h1 className="text-5xl text-orange-400 text-center">Hathazari Computer Center</h1>
+        <p className="text-2xl text-slate-900 text-center">Build Your Own Computer - HCC</p>
       </div>
-      <div>
-        <div>
-          <Image
-            src={banner}
-            width={500}
-            height={500}
-            alt="Picture of the banner"
-          />
-        </div>
-      </div>
-      <div>
-        <div>
-          <Image
-            src={banner}
-            width={500}
-            height={500}
-            alt="Picture of the banner"
-          />
-        </div>
-      </div>
-    </Carousel>
+    </div>
   );
 }
 
