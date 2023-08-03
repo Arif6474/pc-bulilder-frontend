@@ -72,6 +72,14 @@ Motherboard.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
+  if (typeof window === 'undefined') {
+    return {
+      props: {
+        allProducts: [],
+      },
+      revalidate: 10,
+    };
+  }
   const res = await fetch(`${process.env.BASE_URL}/products`);
   const data = await res.json();
   // console.log(data);
