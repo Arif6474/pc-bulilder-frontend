@@ -7,7 +7,7 @@ import { useAppSelector } from "@/redux/features/hooks";
 
 function PcBuild() {
   const products = useAppSelector((state) => state.pcBuilder);
-  
+
   return (
     <div className="flex justify-center items-centerm mt-2 md:mt-20">
       <div className="container mx-auto order border-blue-500 border-2 w-96 md:w-[55%] p-10 ">
@@ -33,7 +33,11 @@ function PcBuild() {
           <div className="flex flex-col md:flex-row items-center justify-start gap-3">
             <img
               className="w-16"
-              src="https://cdn-icons-png.flaticon.com/512/3716/3716484.png"
+              src={
+                products?.cpu.length > 0
+                  ? products?.cpu[0]?.img
+                  : "https://cdn-icons-png.flaticon.com/512/3716/3716484.png"
+              }
               alt=""
             />
             <div className="flex flex-col">
@@ -51,7 +55,7 @@ function PcBuild() {
             <div className={` hidden md:block`}> </div>
             {products?.cpu.length > 0 ? (
               <button className="btn  btn-outline btn-success px-7">
-                done
+                Selected
               </button>
             ) : (
               <Link href="categories/processor">
@@ -67,7 +71,11 @@ function PcBuild() {
           <div className="flex flex-col md:flex-row items-center justify-start gap-3">
             <img
               className="w-16"
-              src="https://cdn-icons-png.flaticon.com/512/2287/2287895.png"
+              src={
+                products?.motherboard.length > 0
+                  ? products?.motherboard[0]?.img
+                  : "https://cdn-icons-png.flaticon.com/512/2287/2287895.png"
+              }
               alt=""
             />
             <div className="flex flex-col">
@@ -89,7 +97,7 @@ function PcBuild() {
             <div className={` hidden md:block`}> </div>
             {products?.motherboard.length > 0 ? (
               <button className="btn  btn-outline btn-success px-7">
-                done
+                Selected
               </button>
             ) : (
               <Link href="/categories/motherboard">
@@ -105,7 +113,11 @@ function PcBuild() {
           <div className="flex flex-col md:flex-row items-center justify-start gap-3">
             <img
               className="w-16"
-              src="https://cdn-icons-png.flaticon.com/512/7568/7568226.png"
+              src={
+                products?.powerSupply.length > 0
+                  ? products?.powerSupply[0]?.img
+                  : "https://cdn-icons-png.flaticon.com/512/7568/7568226.png"
+              }
               alt=""
             />
             <div className="flex flex-col">
@@ -127,7 +139,7 @@ function PcBuild() {
             <div className={` hidden md:block`}> </div>
             {products?.powerSupply.length > 0 ? (
               <button className="btn  btn-outline btn-success px-7">
-                done
+                Selected
               </button>
             ) : (
               <Link href="/categories/powerSupplyUnit">
@@ -144,7 +156,11 @@ function PcBuild() {
           <div className="flex flex-col md:flex-row items-center justify-start gap-3">
             <img
               className="w-16"
-              src="https://png.pngtree.com/png-clipart/20190517/original/pngtree-vector-ram-icon-png-image_4015165.jpg"
+              src={
+                products?.ram.length > 0
+                  ? products?.ram[0]?.img
+                  : "https://png.pngtree.com/png-clipart/20190517/original/pngtree-vector-ram-icon-png-image_4015165.jpg"
+              }
               alt=""
             />
             <div className="flex flex-col">
@@ -162,7 +178,7 @@ function PcBuild() {
             <div className={`hidden md:block`}> </div>
             {products?.ram.length > 0 ? (
               <button className="btn  btn-outline btn-success px-7">
-                done
+                Selected
               </button>
             ) : (
               <Link href="/categories/ram">
@@ -179,7 +195,11 @@ function PcBuild() {
           <div className="flex flex-col md:flex-row items-center justify-start gap-3">
             <img
               className="w-16"
-              src="https://cdn-icons-png.flaticon.com/512/3566/3566546.png"
+              src={
+                products?.storage.length > 0
+                  ? products?.storage[0]?.img
+                  : "https://cdn-icons-png.flaticon.com/512/3566/3566546.png"
+              }
               alt=""
             />
             <div className="flex flex-col">
@@ -199,7 +219,7 @@ function PcBuild() {
             <div className={` hidden md:block`}> </div>
             {products?.storage.length > 0 ? (
               <button className="btn  btn-outline btn-success px-7">
-                done
+                Selected
               </button>
             ) : (
               <Link href="/categories/storageDevice">
@@ -216,7 +236,11 @@ function PcBuild() {
           <div className="flex flex-col md:flex-row items-center justify-start gap-3">
             <img
               className="w-16"
-              src="https://cdn-icons-png.flaticon.com/512/3474/3474360.png"
+              src={
+                products?.monitor.length > 0
+                  ? products?.monitor[0]?.img
+                  : "https://cdn-icons-png.flaticon.com/512/3474/3474360.png"
+              }
               alt=""
             />
             <div className="flex flex-col">
@@ -236,7 +260,7 @@ function PcBuild() {
             <div className={` hidden md:block`}> </div>
             {products?.monitor.length > 0 ? (
               <button className="btn  btn-outline btn-success px-7">
-                done
+                Selected
               </button>
             ) : (
               <Link href="/categories/monitor">
@@ -247,6 +271,19 @@ function PcBuild() {
             )}
           </div>
         </section>
+        {products?.cpu.length > 0 &&
+          products?.motherboard.length > 0 &&
+          products?.ram.length > 0 &&
+          products?.powerSupply.length > 0 &&
+          products?.storage.length > 0 &&
+          products?.monitor.length > 0 && (
+            <div className="flex justify-center">
+              <button className="btn btn-info text-white mt-4 mx-auto">
+                {" "}
+                Completed
+              </button>
+            </div>
+          )}
       </div>
     </div>
   );

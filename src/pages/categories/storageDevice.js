@@ -2,6 +2,7 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import { addToCategory } from "@/redux/features/pcBuilder/pcBuilderSlice";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
 function StorageDevice({ allProducts }) {
@@ -9,8 +10,10 @@ function StorageDevice({ allProducts }) {
     (p) => p.category === "storage-device"
   );
   const dispatch = useDispatch();
+  const router = useRouter();
   const handleAddToBuilder = (product) => {
     dispatch(addToCategory({ category: "storage", product }));
+    router.push("/pcBuild");
   };
   return (
     <>

@@ -2,19 +2,22 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import { addToCategory } from "@/redux/features/pcBuilder/pcBuilderSlice";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
 function Ram({ allProducts }) {
   const rams = allProducts?.filter((p) => p.category === "ram");
   const dispatch = useDispatch();
+  const router = useRouter();
   const handleAddToBuilder = (product) => {
     dispatch(addToCategory({ category: "ram", product }));
+    router.push("/pcBuild");
   };
   return (
     <>
       <div>
         <h2 className="text-center text-gray-700 text-3xl font-bold my-4">
-        Category Products
+          Category Products
           <div class="flex justify-center">
             <hr class="border-t-2 border-gray-900 w-1/6 my-4" />
           </div>
@@ -47,7 +50,7 @@ function Ram({ allProducts }) {
                       </div>
                     </div>
                     <button
-                      onClick={()=>handleAddToBuilder(product)}
+                      onClick={() => handleAddToBuilder(product)}
                       className="btn bg-gray-800 mt-4 text-white border-none"
                     >
                       Add to Build

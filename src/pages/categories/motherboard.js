@@ -2,14 +2,16 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import { addToCategory } from "@/redux/features/pcBuilder/pcBuilderSlice";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
 function Motherboard({ allProducts }) {
   const motherboards = allProducts?.filter((p) => p.category === "motherboard");
   const dispatch = useDispatch();
-
+  const router = useRouter();
   const handleAddToBuilder = (product) => {
     dispatch(addToCategory({ category: "motherboard", product }));
+    router.push("/pcBuild");
   };
   return (
     <>
@@ -48,7 +50,7 @@ function Motherboard({ allProducts }) {
                       </div>
                     </div>
                     <button
-                      onClick={()=>handleAddToBuilder(product)}
+                      onClick={() => handleAddToBuilder(product)}
                       className="btn bg-gray-800 mt-4 text-white border-none"
                     >
                       Add to Build

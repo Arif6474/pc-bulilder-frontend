@@ -2,14 +2,16 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import { addToCategory, pcBuilder } from "@/redux/features/pcBuilder/pcBuilderSlice";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
 function Monitor({ allProducts }) {
   const monitor = allProducts?.filter((p) => p.category === "monitor");
   const dispatch = useDispatch();
-
+  const router = useRouter()
   const handleAddToBuilder = (product) => {
     dispatch(addToCategory({ category: 'monitor', product }));
+    router.push('/pcBuild')
   };
   return (
     <>

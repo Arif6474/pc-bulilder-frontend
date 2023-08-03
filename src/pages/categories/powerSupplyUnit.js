@@ -2,6 +2,7 @@
 import RootLayout from "@/components/Layouts/RootLayout";
 import { addToCategory } from "@/redux/features/pcBuilder/pcBuilderSlice";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
 function PowerSupplyUnit({ allProducts }) {
@@ -9,8 +10,10 @@ function PowerSupplyUnit({ allProducts }) {
     (p) => p.category === "Power Supply Unit"
   );
   const dispatch = useDispatch();
+  const router = useRouter();
   const handleAddToBuilder = (product) => {
     dispatch(addToCategory({ category: "powerSupply", product }));
+    router.push("/pcBuild");
   };
   return (
     <>
