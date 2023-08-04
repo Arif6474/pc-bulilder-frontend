@@ -5,7 +5,7 @@ import {
   GoogleSquareFilled,
   TwitterSquareFilled,
 } from "@ant-design/icons";
-import { Button, Dropdown, Layout, Menu } from "antd";
+import { Button, Dropdown, Layout } from "antd";
 const { Header, Content, Footer } = Layout;
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";

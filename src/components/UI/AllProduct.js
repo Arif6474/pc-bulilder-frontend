@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 
 const AllProduct = ({ allProducts }) => {
   // console.log(allProducts);

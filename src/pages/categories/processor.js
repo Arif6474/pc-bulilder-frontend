@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import RootLayout from "@/components/Layouts/RootLayout";
 import { addToCategory } from "@/redux/features/pcBuilder/pcBuilderSlice";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 
@@ -72,14 +71,14 @@ Processor.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
-  if (typeof window === 'undefined') {
-    return {
-      props: {
-        allProducts: [],
-      },
-      revalidate: 10,
-    };
-  }
+  // if (typeof window === 'undefined') {
+  //   return {
+  //     props: {
+  //       allProducts: [],
+  //     },
+  //     revalidate: 10,
+  //   };
+  // }
   const res = await fetch(`${process.env.BASE_URL}/products`);
   const data = await res.json();
   // console.log(data);

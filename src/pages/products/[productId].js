@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import { Col, Row } from "antd";
-import {
-  UserOutlined,
-  CalendarOutlined,
-  CommentOutlined,
-  ProfileOutlined,
-} from "@ant-design/icons";
+// import { Col, Row } from "antd";
+// import {
+//   UserOutlined,
+//   CalendarOutlined,
+//   CommentOutlined,
+//   ProfileOutlined,
+// } from "@ant-design/icons";
 import RootLayout from "@/components/Layouts/RootLayout";
-import Image from "next/image";
+// import Image from "next/image";
 
 const ProductDetailPage = ({ product }) => {
   const { title, descriptions, img, price, status, category, rating } = product;

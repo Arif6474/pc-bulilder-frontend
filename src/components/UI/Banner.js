@@ -1,5 +1,4 @@
-import Image from "next/image";
-import banner from "../../assets/images/banner-images/pc-builds.jpg";
+
 
 function Banner() {
   return (

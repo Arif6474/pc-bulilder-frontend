@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import RootLayout from "@/components/Layouts/RootLayout";
-import Link from "next/link";
+
 
 function Others({ allProducts }) {
   const others = allProducts?.filter(
@@ -66,14 +66,14 @@ Others.getLayout = function getLayout(page) {
 };
 
 export const getStaticProps = async () => {
-  if (typeof window === 'undefined') {
-    return {
-      props: {
-        allProducts: [],
-      },
-      revalidate: 10,
-    };
-  }
+  // if (typeof window === 'undefined') {
+  //   return {
+  //     props: {
+  //       allProducts: [],
+  //     },
+  //     revalidate: 10,
+  //   };
+  // }
   const res = await fetch(`${process.env.BASE_URL}/products`);
   const data = await res.json();
   // console.log(data);
