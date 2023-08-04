@@ -1,13 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-// import { Col, Row } from "antd";
-// import {
-//   UserOutlined,
-//   CalendarOutlined,
-//   CommentOutlined,
-//   ProfileOutlined,
-// } from "@ant-design/icons";
+
 import RootLayout from "@/components/Layouts/RootLayout";
-// import Image from "next/image";
 
 const ProductDetailPage = ({ product }) => {
   const { title, descriptions, img, price, status, category, rating } = product;
@@ -16,7 +9,6 @@ const ProductDetailPage = ({ product }) => {
     <div
       className="flex justify-center items-center p-32 h-screen bg-cover bg-center"
       style={{
-        // backgroundImage: `url(${img})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -46,7 +38,6 @@ const ProductDetailPage = ({ product }) => {
           </p>
 
           <div className="card-actions justify-end">
-            {/* <button className="btn ">Watch</button> */}
             <button className="btn bg-gray-700 text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -77,26 +68,38 @@ ProductDetailPage.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${process.env.BASE_URL}/products`);
-  const products = await res.json();
+  try {
+    const res = await fetch(
+      `https://pc-builder-server-liard.vercel.app/products`
+    );
+    const products = await res.json();
 
-  const paths = products.map((product) => ({
-    params: { productId: product?._id },
-  }));
-  return { paths, fallback: false };
+    const paths = products.map((product) => ({
+      params: { productId: product?._id },
+    }));
+    return { paths, fallback: false };
+  } catch (error) {
+    console.error("Error fetching static paths:", error);
+    return { paths: [], fallback: false };
+  }
 };
 
 export const getStaticProps = async (context) => {
-  const { params } = context;
-  const res = await fetch(
-    `${process.env.BASE_URL}/products/${params?.productId}`
-  );
-  const data = await res.json();
-  // console.log(data);
+  try {
+    const { params } = context;
+    const res = await fetch(
+      `https://pc-builder-server-liard.vercel.app/products/${params?.productId}`
+    );
+    const data = await res.json();
+    // console.log(data);
 
-  return {
-    props: {
-      product: data,
-    },
-  };
+    return {
+      props: {
+        product: data,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching static props:", error);
+    return { props: { product: null } };
+  }
 };
